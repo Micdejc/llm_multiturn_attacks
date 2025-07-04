@@ -44,7 +44,7 @@ During the experiements, a selection of widely used large language models (LLMs)
 ## Experiments 
 
 The [`daseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains baseline dataset derived from well known well-known
- adversarial benchmarks AdvBench and HarmBench.
+ adversarial benchmarks, AdvBench [1] and HarmBench [2].
 
  - To perform multi-turn data generation, please follow the directions in [`Multiturn_dataset_generation.ipynb`](Multiturn_dataset_generation.ipynb).
 
