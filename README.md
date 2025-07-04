@@ -1,9 +1,8 @@
 
-# LLM Multi-Turn Attacks
+# Large Language Model (LLM) Multi-turn Attacks
 
 This is the repository for "[Jailbreaking LLMs Through Tense Manipulation
- in Multi-Turn Dialogues](<Insert Link Here>)" by [Michael Tchuindjang](<Insert Link Here>), [Nathan Duran](<Insert Link Here>), [Phil Legg](<Insert Link Here>), and [Faiza Medjek](<Insert Link Here>). The Attack dubbed "Grammatical Mirage Attack" is a multi-turn attack that leverages 
-tense manipulation within dialogues to bypass the Large Languages Models (LLMs) guardrails.
+ in Multi-Turn Dialogues](<Insert Link Here>)" by [Michael Tchuindjang](<Insert Link Here>), [Nathan Duran](<Insert Link Here>), [Phil Legg](<Insert Link Here>), and [Faiza Medjek](<Insert Link Here>). The proposed attack, dubbed the "Grammatical Mirage Attack," is a multi-turn strategy that leverages tense manipulation within dialogues to bypass the guardrails of Large Language Models (LLMs).
 
 
 
@@ -25,38 +24,26 @@ tense manipulation within dialogues to bypass the Large Languages Models (LLMs) 
 
 Please make sure to install the following python librairies as dependencies to run the multi-turn attack (Grammatical Mirage Attack)
 
-1. pandas
-2. google-genai
-3. openai
-4. anthropic
+1. jupyter
+2. pandas
+3. google-genai
+4. openai
+5. anthropic
 
 ```bash
 pip install pandas google-genai openai anthropic
 ```
 
+LM Studio has been installed to run the experiments with the LLMs. You can follow the official link to download and install it: [LM Studio]([https://example.com](https://lmstudio.ai/))
+
+
 ## Models
 
-Please follow the instructions to download Vicuna-7B or/and LLaMA-2-7B-Chat first (we use the weights converted by HuggingFace [here](https://huggingface.co/meta-llama/Llama-2-7b-hf)).  Our script by default assumes models are stored in a root directory named as `/DIR`. To modify the paths to your models and tokenizers, please add the following lines in `experiments/configs/individual_xxx.py` (for individual experiment) and `experiments/configs/transfer_xxx.py` (for multiple behaviors or transfer experiment). An example is given as follows.
-
-```python
-    config.model_paths = [
-        "/DIR/vicuna/vicuna-7b-v1.3",
-        ... # more models
-    ]
-    config.tokenizer_paths = [
-        "/DIR/vicuna/vicuna-7b-v1.3",
-        ... # more tokenizers
-    ]
-```
-
-## Demo
-We include a notebook `demo.ipynb` which provides an example on attacking LLaMA-2 with GCG. You can also view this notebook on [Colab](https://colab.research.google.com/drive/1dinZSyP1E4KokSLPcCh1JQFUFsN-WV--?usp=sharing). This notebook uses a minimal implementation of GCG so it should be only used to get familiar with the attack algorithm. For running experiments with more behaviors, please check Section Experiments. To monitor the loss in the demo we use `livelossplot`, so one should install this library first by pip.
-
-```bash
-pip install livelossplot
-```
+During the experiements, a selection of widely used large language models (LLMs), representative of current safety research, were employed as targets. These included open-source models such as Llama 2-7B [Here](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF) and Qwen 2-7B [Here](https://huggingface.co/Qwen/Qwen2-7B-Instruct-GGUF), as well as closed-source models like GPT-4o-mini and Gemini-2.0-Flash. In addition Mistral-v0.1-7B [Here](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF) was use as LLM assistant to generate the multi-turn datasets.
 
 ## Experiments 
+
+The [`daseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains code to reproduce GCG experiments on AdvBench.
 
 The `experiments` folder contains code to reproduce GCG experiments on AdvBench.
 
