@@ -7,8 +7,8 @@ This is the repository for "[Jailbreaking LLMs Through Tense Manipulation
 
 
 ## Updates
-- (XXXX-XX-XX) News 1...
-- (XXXX-XX-XX) News 2...
+- (2025-07-04) Released the first version of the paper's dataset on GitHub.
+- (2025-07-01) Our paper was accepted at the 24th UK Workshop on Computational Intelligence (UKCI 2025), to be held at Edinburgh Napier University from September 3–5, 2025.
 
 
 ## Table of Contents
@@ -39,18 +39,17 @@ LM Studio has been installed to run the experiments with the LLMs. You can follo
 
 ## Models
 
-During the experiements, a selection of widely used large language models (LLMs), representative of current safety research, were employed as targets. These included open-source models such as Llama 2-7B [Here](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF) and Qwen 2-7B [Here](https://huggingface.co/Qwen/Qwen2-7B-Instruct-GGUF), as well as closed-source models like GPT-4o-mini and Gemini-2.0-Flash. In addition Mistral-v0.1-7B [Here](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF) was used as LLM assistant to generate the multi-turn datasets.
+During the experiements, a selection of widely used large language models (LLMs), representative of current safety research, were employed as targets. These included open-source models such as Llama 2-7B [Here](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF) and Qwen 2-7B [Here](https://huggingface.co/Qwen/Qwen2-7B-Instruct-GGUF), as well as closed-source models like GPT-4o-mini and Gemini-2.0-Flash. In addition, Mistral-v0.1-7B [Here](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF) was used as the LLM assistant to generate the multi-turn datasets. 
 
 ## Experiments 
 
-The [`daseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains baseline dataset derived from well known well-known
- adversarial benchmarks, AdvBench [1] and HarmBench [2].
+The [`daseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains contains data derived from well-known adversarial benchmarks: AdvBench [1] and HarmBench [2].
 
- - To perform multi-turn data generation, please follow the directions in [`Multiturn_dataset_generation.ipynb`](Multiturn_dataset_generation.ipynb).
+ - To perform multi-turn data generation, please follow the instructions in [`Multiturn_dataset_generation.ipynb`](Multiturn_dataset_generation.ipynb).
 
- - To run single or multiple-turn attacks against open-source and closed-source models, run the codes by following the instructions inside [`Opensource_LLM_jailbreaking`](Opensource_LLM_jailbreaking) and  [`Closesource_LLM_jailbreaking`](Closesource_LLM_jailbreaking) files respectively.
+ - To run single-turn or multi-turn attacks against open-source and closed-source models, refer to the instructions provided in [`Opensource_LLM_jailbreaking`](Opensource_LLM_jailbreaking) and [`Closesource_LLM_jailbreaking`](Closesource_LLM_jailbreaking) files, respectively.
 
-We include a few examples of our experimental results in [`examples`](examples) folder.
+A few examples of our experimental results are included in [`examples`](examples) folder.
 
 ## Reproducibility
 
