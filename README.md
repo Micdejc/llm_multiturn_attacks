@@ -53,7 +53,7 @@ A few examples of our experimental results are included in [`examples`](examples
 
 ## Reproducibility
 
-A note for hardware: all experiments we run use one or multiple NVIDIA A100 GPUs, which have 32GiB memory per chip. 
+A note for hardware: all experiments we run use one or multiple NVIDIA GeForce RTX 4090 GPUs, which have 32GiB memory per chip. 
 
 ## Acknowledgements and Citation
 
