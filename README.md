@@ -58,8 +58,8 @@ A note for hardware: all experiments we run use one or multiple NVIDIA A100 GPUs
 ## Acknowledgements and Citation
 
 We thank the following open-source repositories:
-- [1] ([https://github.com/llm-attacks/llm-attacks](https://github.com/llm-attacks/llm-attacks))
-- [2] ([https://github.com/patrickrchao/JailbreakingLLMs](https://github.com/centerforaisafety/HarmBench))
+- [1] [AdvBench](https://github.com/llm-attacks/llm-attacks)
+- [2] [HarmBench](https://github.com/centerforaisafety/HarmBench)
 
 If you find this useful in your research, please consider citing:
 
