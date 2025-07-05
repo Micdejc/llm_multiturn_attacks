@@ -20,6 +20,7 @@ This study was conducted as part of a PhD research project in Cybersecurity and 
 
 - [Installation](#installation)
 - [Models](#models)
+- [CyMulTenSet](#CyMulTenSet)
 - [Experiments](#experiments)
 - [Reproducibility](#reproducibility)
 - [License](#license)
@@ -51,7 +52,7 @@ In addition, Mistral-v0.1-7B [Here](https://huggingface.co/TheBloke/Mistral-7B-I
 
 ## CyMulTenSet
 
-Given the limited availability of multi-turn cybersecurity datasets in prior research, we also release a new dataset (CyMulTenSet) for practical value to the research community. This dataset is accessible [Here](datasets).
+Given the limited availability of multi-turn cybersecurity datasets in prior research, we also release a new dataset (*CyMulTenSet*) for practical value to the research community. This dataset is accessible [Here](datasets).
 
 ## Experiments 
 
