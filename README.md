@@ -31,7 +31,7 @@ Please make sure to install the following python librairies as dependencies to r
 5. anthropic
 
 ```bash
-pip install pandas google-genai openai anthropic
+pip install jupyter pandas google-genai openai anthropic
 ```
 
 LM Studio has been installed to run the experiments with the open-source LLMs. You can follow the official link to download and install it: [LM Studio](https://lmstudio.ai/)
