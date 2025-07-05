@@ -4,7 +4,7 @@
 This is the repository for "[Jailbreaking LLMs Through Tense Manipulation
  in Multi-Turn Dialogues](<Insert Link Here>)" by [Michael Tchuindjang](<Insert Link Here>), [Nathan Duran](<Insert Link Here>), [Phil Legg](<Insert Link Here>), and [Faiza Medjek](<Insert Link Here>). 
  
-The proposed attack, dubbed the *"Grammatical Mirage Attack,"* is a multi-turn strategy that leverages tense manipulation within dialogues to bypass the guardrails of Large Language Models (LLMs).
+The proposed attack, dubbed the *"Grammatical Mirage Attack,"* is a multi-turn strategy that leverages tense manipulation within dialogues to bypass the guardrails of both open and closed-source Large Language Models (LLMs).
 
 *Grammatical Mirage Attack* demonstrates that **past-tense reformulation** significantly enhances its effectiveness, yielding an **average performance increase of 25.30%**, with a more pronounced impact on closed-source models.
 
