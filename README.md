@@ -50,7 +50,7 @@ The [`daseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains 
 
  - To perform multi-turn data generation, please follow the instructions in [`Multiturn_dataset_generation.ipynb`](Multiturn_dataset_generation.ipynb).
 
- - To run single-turn or multi-turn attacks against open-source and closed-source models, refer to the instructions provided in [`Opensource_LLM_jailbreaking`](Opensource_LLM_jailbreaking) and [`Closesource_LLM_jailbreaking`](Closesource_LLM_jailbreaking) files, respectively.
+ - To run single-turn or multi-turn attacks against open-source and closed-source models, refer to the instructions provided in [`Opensource_LLM_jailbreaking`](Opensource_LLM_jailbreaking.ipynb) and [`Closesource_LLM_jailbreaking`](Closesource_LLM_jailbreaking.ipynb) files, respectively.
 
 A few examples of our experimental results are included in [`examples`](examples) folder.
 
