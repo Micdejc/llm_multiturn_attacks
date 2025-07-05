@@ -36,6 +36,7 @@ pip install jupyter pandas google-genai openai anthropic
 
 LM Studio has been installed to run the experiments with the open-source LLMs. You can follow the official link to download and install it: [LM Studio](https://lmstudio.ai/)
 
+The experiments with closed-source LLMs were conducted via API calls obtained through subscriptions, as these models are commercial.
 
 ## Models
 
