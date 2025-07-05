@@ -28,7 +28,7 @@ This study was conducted as part of a PhD research project in Cybersecurity and 
 
 ## Installation
 
-Please make sure to install the following python librairies as dependencies to run the multi-turn attack (Grammatical Mirage Attack)
+Please make sure to install the following python librairies as dependencies to run the *Grammatical Mirage Attack*
 
 1. jupyter
 2. pandas
