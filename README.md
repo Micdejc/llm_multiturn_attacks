@@ -23,8 +23,8 @@ This study was conducted as part of a PhD research project in Cybersecurity and 
 - [CyMulTenSet](#CyMulTenSet)
 - [Experiments](#experiments)
 - [Reproducibility](#reproducibility)
+- [Acknowledgements and Citation](#Acknowledgements and Citation) 
 - [License](#license)
-- [Citation](#citation)
 
 ## Installation
 
