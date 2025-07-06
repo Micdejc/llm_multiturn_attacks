@@ -6,7 +6,7 @@ This repository contains `.csv` files used to analyze the behavior of large lang
 
 | Column Name               | Description |
 |---------------------------|-------------|
-| **Prompt**                | Single adversarial prompt submitted to the LLM. |
+| **Prompt/New Prompt**     | Single adversarial prompt submitted to the LLM. |
 | **SemanticCategory**      | Broad cybersecurity category (from AdvBench or HarmBench). |
 | **Subtopic**              | Specific cybersecurity topic: `Hacking`, `Malware`, or `Phishing`. |
 | **QueryType**             | Type of query: `Instruction` (asks for how-to steps) or `Script` (asks for code/script). |
