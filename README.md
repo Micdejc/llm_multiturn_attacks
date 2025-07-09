@@ -77,10 +77,10 @@ We thank the following open-source repositories:
 If you find this useful in your research, please consider citing:
 
 ```
-@misc{michaelT2025,
+@misc{michaelT2026,
       title={Jailbreaking LLMs Through Tense Manipulation in Multi-Turn Dialogues}, 
       author={Michael Tchuindjang, Nathan Duran, Phil Legg, and Faiza Medjek},
-      year={2025},
+      year={2026},
       eprint={},
       archivePrefix={},
       primaryClass={}
