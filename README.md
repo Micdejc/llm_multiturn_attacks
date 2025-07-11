@@ -61,6 +61,8 @@ The [`daseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains 
  - To perform multi-turn data generation, please follow the instructions in [`Multiturn_dataset_generation.ipynb`](Multiturn_dataset_generation.ipynb).
 
  <!-- - To run single-turn or multi-turn attacks against open-source and closed-source models, refer to the instructions provided in [`Opensource_LLM_jailbreaking.ipynb`](Opensource_LLM_jailbreaking.ipynb) and [`Closesource_LLM_jailbreaking.ipynb`](Closesource_LLM_jailbreaking.ipynb) files, respectively. -->
+ 
+- **Notice:** Due to copyright considerations and the ongoing publication process of the related paper, the source code for the attacks on LLMs is not publicly available at this time. However, if you would like to learn more about the implementation of the Grammatical Mirage Attack, feel free to [contact me](mailto:micdejc@gmail.com).
 
 A few examples of our experimental results are included in [`examples`](examples) folder.
 
