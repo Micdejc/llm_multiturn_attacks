@@ -1,6 +1,6 @@
-<p align="center" width="100%">
+<!-- <p align="center" width="100%">
 <img src="assets/Grammatical_Attack_Logo.png" alt="Grammatical-Mirage-Attack" style="width: 100%; min-width: 300px; display: block; margin: auto;">
-</p>
+</p> -->
 
 # Grammatical-Mirage-Attack: A Large Language Model (LLM) Multi-turn Attack
 
