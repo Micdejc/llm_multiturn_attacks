@@ -1,4 +1,4 @@
-<p align="center" width="100%">
+<p align="center" width="50%">
 <img src="assets/Grammatical_Attack_Logo.png" alt="Grammatical-Mirage-Attack" style="width: 100%; min-width: 100px; display: block; margin: auto;">
 </p>
 
