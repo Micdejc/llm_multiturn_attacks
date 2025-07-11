@@ -1,7 +1,8 @@
 <p align="center" width="100%">
 <img src="assets/Grammatical_Attack_Logo.png" alt="Grammatical-Mirage-Attack" style="width: 100%; min-width: 300px; display: block; margin: auto;">
 </p>
-
+[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-31211/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 # Grammatical Mirage Attack: A Large Language Model (LLM) Multi-turn Attack
 
 This is the official repository for "[Jailbreaking LLMs Through Tense Manipulation
