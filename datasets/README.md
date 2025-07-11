@@ -39,4 +39,4 @@ These datasets are intended for research on:
 
 ## 📧 Contact
 
-For questions or collaborations, feel free to reach out via [GitHub Issues](https://github.com/your-repo/issues) or contact me directly.
+For questions or collaborations, feel free to reach out via [GitHub Issues](https://github.com/Micdejc/llm_multiturn_attacks/issues) or contact me directly.
