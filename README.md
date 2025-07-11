@@ -2,7 +2,7 @@
 <img src="assets/Grammatical_Attack_Logo.png" alt="Grammatical-Mirage-Attack" style="width: 100%; min-width: 300px; display: block; margin: auto;">
 </p>
 
-# Grammatical-Mirage-Attack: A Large Language Model (LLM) Multi-turn Attack
+# Grammatical Mirage Attack: A Large Language Model (LLM) Multi-turn Attack
 
 This is the official repository for "[Jailbreaking LLMs Through Tense Manipulation
  in Multi-Turn Dialogues](<Insert Link Here>)" by [Michael Tchuindjang](<Insert Link Here>), [Nathan Duran](<Insert Link Here>), [Phil Legg](<Insert Link Here>), and [Faiza Medjek](<Insert Link Here>). 
