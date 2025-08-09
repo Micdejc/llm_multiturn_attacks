@@ -20,6 +20,7 @@ This study was conducted as part of a PhD research project in Cybersecurity and 
 
 
 ## Updates
+- (2025-07-14) A poster presenting this work was shown at the 4th Cardiff NLP Workshop at Cardiff University, UK.
 - (2025-07-04) Released the first version of the paper's dataset on GitHub.
 - (2025-07-01) Our paper was accepted at the 24th UK Workshop on Computational Intelligence (UKCI 2025), to be held at Edinburgh Napier University from September 3–5, 2025.
 
