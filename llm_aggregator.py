@@ -44,7 +44,7 @@ The main functions included are:
 
 
 # Define the API endpoint and headers (get them all from LM studio when enabling the Server mode)
-API_URL = "http://localhost:1234/v1/chat/completions"  # LM Studio's API endpoint
+API_URL = "<Insert LM Studio's Server API endpoint here...>"  # LM Studio's API endpoint
 HEADERS = {"Content-Type": "application/json"}
 
 # Max tokens parameter set to 1024 during the experiments
