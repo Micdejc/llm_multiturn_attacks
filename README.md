@@ -21,7 +21,7 @@ This study was conducted as part of a PhD research project in Cybersecurity and 
 
 ## Updates
 - (2025-09-06) Awarded Best Paper at the 24th UK Workshop on Computational Intelligence (UKCI 2025), Edinburgh Napier University, UK. LinkedIn Post: [Here](https://www.linkedin.com/posts/michael-tchuindjang-38829317b_ukci2025-ai-llms-activity-7370320179379195904-bP5J)
-- (2025-07-14) A poster presenting this work was shown at the 4th Cardiff NLP Workshop at Cardiff University, UK.
+- (2025-07-14) A poster presenting this work was shown at the 4th Cardiff NLP Workshop at Cardiff University, UK. LinkedIn Post: [Here](https://www.linkedin.com/posts/michael-tchuindjang-38829317b_what-a-fantastic-day-at-the-4th-cardiff-nlp-activity-7350591729969889280-Dith)
 - (2025-07-04) Released the first version of the paper's dataset on GitHub.
 - (2025-07-01) Our paper was accepted at the 24th UK Workshop on Computational Intelligence (UKCI 2025), to be held at Edinburgh Napier University from September 3–5, 2025.
 
