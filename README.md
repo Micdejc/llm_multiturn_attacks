@@ -10,7 +10,7 @@
 # Grammatical Mirage Attack: A Large Language Model (LLM) Multi-turn Attack
 
 This is the official repository for "[Jailbreaking LLMs Through Tense Manipulation
- in Multi-Turn Dialogues](https://doi.org/10.1007/978-3-032-07938-1_24)" by [Michael Tchuindjang](https://github.com/Micdejc), [Nathan Duran](https://github.com/NathanDuran), [Phil Legg](https://github.com/pa-legg), and [Faiza Medjek](<Insert Link Here>). 
+ in Multi-Turn Dialogues](https://doi.org/10.1007/978-3-032-07938-1_24)" by [Michael Tchuindjang](https://github.com/Micdejc), [Nathan Duran](https://github.com/NathanDuran), [Phil Legg](https://github.com/pa-legg), and [Faiza Medjek](https://sciprofiles.com/profile/3778378). 
  
 The proposed attack, dubbed the *"Grammatical Mirage Attack,"* is a multi-turn strategy that leverages tense manipulation within dialogues to bypass the guardrails of of both open- and closed-source Large Language Models (LLMs).
 
