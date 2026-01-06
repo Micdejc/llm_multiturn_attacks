@@ -18,6 +18,9 @@ The proposed attack, dubbed the *"Grammatical Mirage Attack,"* is a multi-turn s
 
 This study was conducted as part of a PhD research project in Cybersecurity and Artificial Intelligence, supported by a studentship at the University of the West of England (UWE Bristol) in the UK.
 
+## Disclaimer
+
+This repository is for **research and educational purposes only**. It explores jailbreaking techniques to better understand and improve LLM safety. Misuse for bypassing safeguards or causing harm is not intended and is discouraged. The authors are not responsible for any misuse of this material.
 
 ## Updates
 - (2025-09-06) Awarded Best Paper at the 24th UK Workshop on Computational Intelligence (UKCI 2025), Edinburgh Napier University, UK. LinkedIn Post: [Here](https://www.linkedin.com/posts/michael-tchuindjang-38829317b_ukci2025-ai-llms-activity-7370320179379195904-bP5J)
