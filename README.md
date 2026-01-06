@@ -93,13 +93,17 @@ We thank the following open-source repositories:
 If you find this useful in your research, please consider citing:
 
 ```
-@misc{michaelT2025,
-      title={Jailbreaking LLMs Through Tense Manipulation in Multi-Turn Dialogues}, 
-      author={Michael Tchuindjang, Nathan Duran, Phil Legg, and Faiza Medjek},
-      year={2025},
-      publisher = {GitHub},
-      journal = {GitHub repository},
-      howpublished = {\url{https://github.com/Micdejc/llm_multiturn_attacks}}
+@inproceedings{tchuindjang2026tense,
+  title     = {Jailbreaking LLMs Through Tense Manipulation in Multi-turn Dialogues},
+  author    = {Tchuindjang, Michael and Duran, N. and Legg, P. and Medjek, F.},
+  booktitle = {Advances in Computational Intelligence Systems},
+  editor    = {Hart, E. and Horvath, T. and Tan, Z. and Thomson, S.},
+  series    = {Advances in Intelligent Systems and Computing},
+  volume    = {1468},
+  year      = {2026},
+  publisher = {Springer},
+  address   = {Cham},
+  doi       = {10.1007/978-3-032-07938-1_24}
 }
 ```
 
