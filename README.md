@@ -80,11 +80,11 @@ The [`baseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains 
 
 A few examples of our experimental results are included in [`examples`](examples) folder.
 
-**Notice:** If you would like to learn more about the implementation of the *Grammatical Mirage Attack*, feel free to [contact me](mailto:micdejc@gmail.com).
-
 ### Jailbreaking assessment
 
 Given the sensitive nature of cybersecurity, human judgment was prioritized to ensure high-quality and reliable assessments. A team of cybersecurity experts reviewed the experimental conversations and provided their judgments. The shared labeling guidelines and rules followed by the experts can be found [here](https://github.com/Micdejc/jailbreaking_assessment).
+
+**Notice:** If you would like to learn more about the implementation of the *Grammatical Mirage Attack*, feel free to [contact me](mailto:micdejc@gmail.com).
 
 ## Reproducibility
 
