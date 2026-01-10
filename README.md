@@ -82,6 +82,10 @@ A few examples of our experimental results are included in [`examples`](examples
 
 **Notice:** If you would like to learn more about the implementation of the *Grammatical Mirage Attack*, feel free to [contact me](mailto:micdejc@gmail.com).
 
+### Jailbreaking assessment
+
+Given the sensitive nature of cybersecurity, human judgment was prioritized to ensure high-quality and reliable assessments. A team of cybersecurity experts reviewed the experimental conversations and provided their judgments. The shared labeling guidelines and rules followed by the experts can be found [here](https://github.com/Micdejc/jailbreaking_assessment).
+
 ## Reproducibility
 
 A note for hardware: all experiments we run use one or multiple NVIDIA GeForce RTX 4090 GPUs, which have 32GiB memory per chip. 
