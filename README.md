@@ -72,7 +72,7 @@ The [`baseline dataset`](Baseline_Dataset_Advbench_HarmBench.csv) file contains 
 
  - To run single-turn or multi-turn attacks against open-source and closed-source models, refer to the instructions provided in [`run_jailbroker.ipynb`](run_jailbroker.ipynb) file.
 
- - To moderate LLM responses for jailbreaking using automated methods, refer to the instructions provided in [`run_moderator.ipynb`](run_moderator.ipynb) file.
+<!--  - To moderate LLM responses for jailbreaking using automated methods, refer to the instructions provided in [`run_moderator.ipynb`](run_moderator.ipynb) file.  -->
 
  <!-- - To moderate LLM responses for jailbreaking using semantic similarities, refer to the instructions provided in [`run_evaluator.ipynb`](run_evaluator.ipynb) file. -->
   
