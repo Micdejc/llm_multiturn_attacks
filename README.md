@@ -109,8 +109,7 @@ If you find this useful in your research, please consider citing:
   year      = {2026},
   publisher = {Springer},
   address   = {Cham},
-  doi       = {10.1007/978-3-032-07938-1_24},
-  note      = {Url dataset: https://huggingface.co/datasets/Micdejc/cymultenset}
+  doi       = {10.1007/978-3-032-07938-1_24}
 }
 ```
 ## Disclaimer
