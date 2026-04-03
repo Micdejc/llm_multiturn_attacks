@@ -62,7 +62,7 @@ In addition, Mistral-v0.1-7B [Here](https://huggingface.co/TheBloke/Mistral-7B-I
 
 ## CyMulTenSet
 
-Given the limited availability of multi-turn cybersecurity datasets in prior research, we also release a new dataset (*CyMulTenSet*) for practical value to the research community. This dataset is accessible [Here](datasets), and the full documentation can be found [Here](datasets/README.md)
+Given the limited availability of multi-turn cybersecurity datasets in prior research, we also release a new dataset (*CyMulTenSet*) for practical value to the research community. This dataset is accessible [Here](datasets) or on [Hugging Face](https://huggingface.co/datasets/Micdejc/cymultenset). The full documentation is available [Here](datasets/README.md)
 
 ## Experiments 
 
