@@ -99,7 +99,7 @@ We thank the following open-source repositories:
 If you find this useful in your research, please consider citing:
 
 ```
-@inproceedings{tchuindjang2026tense,
+@inproceedings{tchuindjang2026,
   title     = {Jailbreaking LLMs Through Tense Manipulation in Multi-turn Dialogues},
   author    = {Tchuindjang, Michael and Duran, N. and Legg, P. and Medjek, F.},
   booktitle = {Advances in Computational Intelligence Systems},
@@ -109,7 +109,8 @@ If you find this useful in your research, please consider citing:
   year      = {2026},
   publisher = {Springer},
   address   = {Cham},
-  doi       = {10.1007/978-3-032-07938-1_24}
+  doi       = {10.1007/978-3-032-07938-1_24},
+  note      = {Url dataset: https://huggingface.co/datasets/Micdejc/cymultenset}
 }
 ```
 ## Disclaimer
