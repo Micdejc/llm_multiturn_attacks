@@ -99,7 +99,7 @@ We thank the following open-source repositories:
 
 If you find this useful in your research, please consider citing:
 
-```
+```bibtex
 @inproceedings{tchuindjang2026,
   title     = {Jailbreaking LLMs Through Tense Manipulation in Multi-turn Dialogues},
   author    = {Tchuindjang, Michael and Duran, N. and Legg, P. and Medjek, F.},
