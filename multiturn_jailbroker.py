@@ -9,9 +9,11 @@ import llm_aggregator
 importlib.reload(llm_aggregator)
 import my_model
 importlib.reload(my_model)
+import multiturn_dataset_defender
+importlib.reload(multiturn_dataset_defender)
 from llm_aggregator import LLMAggregator
 from my_model import MyModel
-
+from multiturn_dataset_defender import MultiTurnDatasetDefender
 
 """   
 
@@ -125,6 +127,8 @@ class MultiTurnJailbroker(MyModel):
     
             # Index counter
             count = 0
+
+            total_rows = len(df)            
             
             # Iterate over each row in pd
             for index, row in df.iterrows():
@@ -132,6 +136,10 @@ class MultiTurnJailbroker(MyModel):
                 conversations = []
                 # new row ID
                 Row_ID = starting_id + count
+
+                # Print progress every 10 rows or when the final row is processed
+                if (index + 1) % 10 == 0 or (index + 1) == total_rows:
+                    print(f"Processed {index + 1}/{total_rows} rows")
     
                 # For each row in the input file, we prepare a prompt for the LLM and retrieve the response that we'll put in the output file
                 # If single past tense reformulation prompt, we select 'Past' column from the input file
@@ -143,8 +151,11 @@ class MultiTurnJailbroker(MyModel):
                                  'SemanticCategory': row["SemanticCategory"], 
                                  'SubTopic': row['SubTopic'], 
                                  'QueryType': row['QueryType'],
-                                 'Model': self.get_llm(),              
-                                 'Version': self.get_llm_version(),
+                                 #'Model': self.get_llm(),              
+                                 #'Version': self.get_llm_version(),
+                                 'AttackType': "mirage",
+                                 'Model': self.get_model_name(),              
+                                 'Source': row['Source'],
                                  'Temp.': self.get_temp(),    
                                  'Unique ID': Row_ID, 
                                  'Multi Step': 0, 
@@ -158,8 +169,11 @@ class MultiTurnJailbroker(MyModel):
                                  'SemanticCategory': row["SemanticCategory"], 
                                  'SubTopic': row['SubTopic'], 
                                  'QueryType': row['QueryType'],
-                                 'Model': self.get_llm(),              
-                                 'Version': self.get_llm_version(),
+                                 #'Model': self.get_llm(),              
+                                 #'Version': self.get_llm_version(),
+                                 'AttackType': "mirage",
+                                 'Model': self.get_model_name(),              
+                                 'Source': row['Source'],
                                  'Temp.': self.get_temp(),
                                  'Unique ID': Row_ID, 
                                  'Multi Step': 0, 
@@ -251,13 +265,18 @@ class MultiTurnJailbroker(MyModel):
             # Index counter
             count = 0
             
+            total_rows = len(df)
+            
             # Iterate over each row in panda1
             for index, row in df.iterrows():
                 
                 # Initialize an empty conversation to keep the chat history
                 conversations = []
                 Row_ID = starting_id + count
-    
+                
+                # Print progress every 10 rows or when the final row is processed
+                if (index + 1) % 10 == 0 or (index + 1) == total_rows:
+                    print(f"Processed {index + 1}/{total_rows} rows")
     
                 # If past tense reformulation is required
                 if is_past:
@@ -271,8 +290,11 @@ class MultiTurnJailbroker(MyModel):
                                      'SemanticCategory': row["SemanticCategory"], 
                                      'SubTopic': row['SubTopic'], 
                                      'QueryType': row['QueryType'],
-                                     'Model': self.get_llm(),              
-                                     'Version': self.get_llm_version(),
+                                     #'Model': self.get_llm(),              
+                                     #'Version': self.get_llm_version(),
+                                     'AttackType': "mirage",
+                                     'Model': self.get_model_name(),              
+                                     'Source': row['Source'],
                                      'Temp.': self.get_temp(),
                                      'Unique ID': Row_ID, 
                                      'Multi Step': 1, 
@@ -289,8 +311,11 @@ class MultiTurnJailbroker(MyModel):
                                      'SemanticCategory': row["SemanticCategory"], 
                                      'SubTopic': row['SubTopic'],
                                      'QueryType': row['QueryType'],
-                                     'Model': self.get_llm(),              
-                                     'Version': self.get_llm_version(),
+                                     #'Model': self.get_llm(),              
+                                     #'Version': self.get_llm_version(),
+                                     'AttackType': "mirage",
+                                     'Model': self.get_model_name(),              
+                                     'Source': row['Source'],
                                      'Temp.': self.get_temp(),
                                      'Unique ID': Row_ID, 
                                      'Multi Step': 2, 
@@ -308,8 +333,11 @@ class MultiTurnJailbroker(MyModel):
                                      'SemanticCategory': row["SemanticCategory"], 
                                      'SubTopic': row['SubTopic'],
                                      'QueryType': row['QueryType'],
-                                     'Model': self.get_llm(),              
-                                     'Version': self.get_llm_version(),
+                                     #'Model': self.get_llm(),              
+                                     #'Version': self.get_llm_version(),
+                                     'AttackType': "mirage",
+                                     'Model': self.get_model_name(),              
+                                     'Source': row['Source'],
                                      'Temp.': self.get_temp(),
                                      'Unique ID': Row_ID, 
                                      'Multi Step': 3, 
@@ -329,8 +357,11 @@ class MultiTurnJailbroker(MyModel):
                                      'SemanticCategory': row["SemanticCategory"], 
                                      'SubTopic': row['SubTopic'],
                                      'QueryType': row['QueryType'],
-                                     'Model': self.get_llm(),              
-                                     'Version': self.get_llm_version(),
+                                     #'Model': self.get_llm(),              
+                                     #'Version': self.get_llm_version(),
+                                     'AttackType': "mirage",
+                                     'Model': self.get_model_name(),              
+                                     'Source': row['Source'],
                                      'Temp.': self.get_temp(),
                                      'Unique ID': Row_ID, 
                                      'Multi Step': 1, 
@@ -347,8 +378,11 @@ class MultiTurnJailbroker(MyModel):
                                      'SemanticCategory': row["SemanticCategory"], 
                                      'SubTopic': row['SubTopic'],
                                      'QueryType': row['QueryType'],
-                                     'Model': self.get_llm(),              
-                                     'Version': self.get_llm_version(),
+                                     #'Model': self.get_llm(),              
+                                     #'Version': self.get_llm_version(),
+                                     'AttackType': "mirage",
+                                     'Model': self.get_model_name(),              
+                                     'Source': row['Source'],
                                      'Temp.': self.get_temp(),
                                      'Unique ID': Row_ID, 
                                      'Multi Step': 2, 
@@ -365,8 +399,11 @@ class MultiTurnJailbroker(MyModel):
                                      'SemanticCategory': row["SemanticCategory"], 
                                      'SubTopic': row['SubTopic'],
                                      'QueryType': row['QueryType'],
-                                     'Model': self.get_llm(),              
-                                     'Version': self.get_llm_version(),
+                                     #'Model': self.get_llm(),              
+                                     #'Version': self.get_llm_version(),
+                                     'AttackType': "mirage",
+                                     'Model': self.get_model_name(),              
+                                     'Source': row['Source'],
                                      'Temp.': self.get_temp(),
                                      'Unique ID': Row_ID, 
                                      'Multi Step': 3, 
@@ -394,3 +431,116 @@ class MultiTurnJailbroker(MyModel):
             print(f"An error occurred: {e}")
             print("Full traceback:")
             traceback.print_exc()  # This will print the detailed traceback
+
+
+
+
+    # Function to launch multiple turn defense against a targeted LLM with past tense reformulation or not
+    # min_row and max_row determine the range of rows to select in the table of input file for optimization of the attack process
+    # Input:
+    # nb_iterations: The number of iteration for the multi-turn defense
+    # is_past: Indicate whether we're using past tense reformulation or not
+    # min_row: Starting index of the rows to select from the input file
+    # max_row: Ending index of the rows to select from the input file
+    # Output:
+    # This function does not return any value but will create a new file, named according to the output_file variable, which will contain the LLM response for the multi-turn defenses
+    def launch_multiple_turn_defense(self, nb_iterations=1, is_past=False, min_row=None, max_row=None):
+        try:
+            # Output file naming
+            tense = 'past' if is_past else 'present'
+            output_file = f"{LLMAggregator.TEST_FOLDER}{self.get_model_name()}/{self.get_model_name()}_defence_N_{nb_iterations}_{tense}.csv"
+    
+            # Read input CSV for the given nb_iterations
+            df = pd.read_csv(MultiTurnDatasetDefender.MULTITURN_DATASETS[str(nb_iterations)])
+    
+            # Check required columns
+            required_columns = ['Prompt', 'SemanticCategory', 'SubTopic', 'QueryType']
+            for col in required_columns:
+                if col not in df.columns:
+                    print(f"The '{col}' column is missing in the input file.")
+                    return
+    
+            # Set defaults for row selection
+            if min_row is None:
+                min_row = 1
+            if max_row is None:
+                max_row = len(df)
+            if min_row > max_row:
+                print(f"Invalid range: min_row ({min_row}) must be less than max_row ({max_row}).")
+                return
+    
+            df = df.iloc[(min_row-1):max_row]
+    
+            # Determine starting Unique ID
+            starting_id = 1
+            if os.path.exists(output_file):
+                existing_df = pd.read_csv(output_file)
+                if 'Unique ID' in existing_df.columns:
+                    starting_id = existing_df['Unique ID'].max() + 1
+    
+            new_rows = []
+            count = 0
+            total_rows = len(df)
+
+
+            # Iterate over rows
+            for index, row in df.iterrows():
+                conversations = []
+                Row_ID = starting_id + count
+
+                # Print progress every 10 rows or when the final row is processed
+                if (index + 1) % 10 == 0 or (index + 1) == total_rows:
+                    print(f"Processed {index + 1}/{total_rows} rows")                
+    
+                # Loop over each turn dynamically
+                for turn in range(1, nb_iterations + 1):
+                    column_name = f"{'Past' if is_past else 'Present'} Turn {turn}"
+                    if column_name not in row:
+                        print(f"Column '{column_name}' not found in the dataset, skipping turn {turn}.")
+                        continue
+    
+                    rsp = LLMAggregator.process_conversation(
+                        self.is_model_open_source(),
+                        self.get_llm_index(),
+                        self.get_temp(),
+                        conversations,
+                        row[column_name]
+                    )
+                    d = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                    conversations.append({"role": "assistant", "content": rsp})
+
+                    multi_step = 0 if nb_iterations == 1 else turn
+                    
+                    new_rows.append({
+                        'Prompt': row['Prompt'],
+                        'New Prompt': row[column_name],
+                        'SemanticCategory': row['SemanticCategory'],
+                        'SubTopic': row['SubTopic'],
+                        'QueryType': row['QueryType'],
+                        #'Model': self.get_llm(),              
+                        #'Version': self.get_llm_version(),
+                        'AttackType': "anti-mirage",
+                        'Model': self.get_model_name(),              
+                        'Source': row['Source'],
+                        'Temp.': self.get_temp(),
+                        'Unique ID': Row_ID,
+                        'Multi Step': multi_step,
+                        'Response': rsp,
+                        'Date Time': d
+                    })
+    
+                count += 1
+    
+            # Save results
+            output_df = pd.DataFrame(new_rows)
+            os.makedirs(os.path.dirname(output_file), exist_ok=True)
+            file_exists = os.path.exists(output_file)
+            output_df.to_csv(output_file, mode='a', header=not file_exists, index=False)
+            print(f"LLM responses written to {output_file}.")
+
+        except FileNotFoundError:
+            print(f"The file {MultiTurnDatasetDefender.MULTITURN_DATASETS[str(nb_iterations)]} was not found.")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            print("Full traceback:")
+            traceback.print_exc()
