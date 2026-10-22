@@ -9,6 +9,8 @@ from google import genai
 from google.genai import types
 import anthropic
 import time
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
 """   
 
@@ -34,10 +36,11 @@ This source code provides functions to aggregate conversation with the LLM durin
 The main functions included are:
 
 1. conversation_lm_studio(): Handles chat conversations with a large language model (LLM) via the LM Studio server.
-2. conversation_chatgpt(): Handles chat conversations with ChatGPT of OpenAI via API.
-3. conversation_gemini(): Handles chat conversations with Gemini of Google via API.
-4. conversation_claude(): Handles chat conversations with Claude of Anthropic via API.
-5. process_conversation(): Handles new chat conversation according to the selected LLM.
+2. conversation_local_llm(): Handles chat conversations with a large language model (LLM) via the local models.
+3. conversation_chatgpt(): Handles chat conversations with ChatGPT of OpenAI via API.
+4. conversation_gemini(): Handles chat conversations with Gemini of Google via API.
+5. conversation_claude(): Handles chat conversations with Claude of Anthropic via API.
+6. process_conversation(): Handles new chat conversation according to the selected LLM.
 
 
 """
@@ -77,10 +80,14 @@ class LLMAggregator:
     # LLM 1: llama-2-7b-chat
     # LLM 2: qwen2-7b-instruct
     # LLM 3: mistral-7b-instruct-v0.1
+    # LLM 4: qwen3-8b
+    # LLM 5: qwen3-14b
     OPEN_LLM_VERSIONS = [
-        {"MODEL_NAME": "llama-2-7b-chat", "LLM": "Llama", "LLM_VERSION": "2 (7B)"},
-        {"MODEL_NAME": "qwen2-7b-instruct", "LLM": "Qwen", "LLM_VERSION": "2 (7B)"},
-        {"MODEL_NAME": "mistral-7b-instruct-v0.1", "LLM": "Mistral", "LLM_VERSION": "0.1 (7B)"}
+        {"MODEL_NAME": "llama-2-7b-chat", "LLM": "Llama", "LLM_VERSION": "2 (7B)", "MODEL_PATH": "./models/Llama-2-7b-chat-hf"},
+        {"MODEL_NAME": "qwen2-7b-instruct", "LLM": "Qwen", "LLM_VERSION": "2 (7B)", "MODEL_PATH": "./models/qwen2-7b-instruct"},
+        {"MODEL_NAME": "mistral-7b-instruct-v0.1", "LLM": "Mistral", "LLM_VERSION": "0.1 (7B)", "MODEL_PATH": "./models/mistral-7b-instruct-v0.1"},
+        {"MODEL_NAME": "qwen3-8b", "LLM": "Qwen", "LLM_VERSION": "3 (8B)", "MODEL_PATH": "./models/qwen3-8b"},
+        {"MODEL_NAME": "qwen3-14b", "LLM": "Qwen", "LLM_VERSION": "3 (14B)", "MODEL_PATH": "./models/qwen3-14b"}
     ]
 
     # Define the API keys of the close source LLMs
@@ -103,6 +110,99 @@ class LLMAggregator:
 
     # List of different variations of hyperparameters temperature we use during the experiments: 0.1, 0.5 and 0.9
     TEMPS = [0.1, 0.5, 0.9]
+
+    # Variables to control the selected model and its corresponding tokenizer to load model once for efficiency
+    _model = None
+    _tokenizer = None
+
+    # Function that load the local model once for effiency
+    # Input:
+    # model_path: Path to the local model to load
+    # Output:
+    # This function returns the model and tokenizer corresponding to the model loaded locally
+    @staticmethod
+    def load(model_path):
+        if LLMAggregator._model is None:
+            LLMAggregator._tokenizer = AutoTokenizer.from_pretrained(model_path)
+            LLMAggregator._model = AutoModelForCausalLM.from_pretrained(
+                model_path,
+                torch_dtype=torch.float16,
+                device_map="auto"
+            )
+        return LLMAggregator._model, LLMAggregator._tokenizer
+
+
+    # Function that remove think tags in the content especially for the case of Qwen 3(8B)
+    # Input:
+    # content: Response content to remove think tags content from
+    # Output:
+    # This function returns the response of the LLM as a string without think tags content
+    @staticmethod
+    def remove_thinking(content):
+        # Remove complete <think>...</think> blocks and Remove anything remaining after an unclosed <think> in one shot
+        """content = re.sub(
+            r"<think>.*?</think>",
+            "",
+            content,
+            flags=re.DOTALL | re.IGNORECASE
+        )
+    
+        # Remove anything remaining after an unclosed <think>
+        content = re.sub(
+            r"<think>.*$",
+            "",
+            content,
+            flags=re.DOTALL | re.IGNORECASE
+        )
+    
+        return content.strip()"""
+
+        think_pattern = re.compile(
+        r"<think>.*?(?:</think>|$)",
+        re.DOTALL | re.IGNORECASE)
+
+        return think_pattern.sub("", content).strip()
+    
+    # Function of chat conversations with the LLM via local models
+    # We minimize the randomness of the model's predictions to make it more deterministic in the response by setting temperature to a lower value
+    # We Maximize diversity in the model’s responses potentially including highly improbable tokens by setting top_p to a higher value
+    # We are limiting the max_tokens to 1024
+    # Input:
+    # conversation: The conversation we want to input to the LLM for a response.
+    # model: The name of the local model
+    # tokenizer: Corresponding tokenizer for the local model
+    # max_tokens: The limit of tokens the LLM should use during the response generation process. It's set by default to MAX_TOKENS value.
+    # temperature: The value of the hyperparameter temperature of the LLM during the experiment
+    # top_p: The higher is this value the more diverse is the model’s responses and conversely. It's set by default to TOP_P value.
+    # Output:
+    # This function returns the response of the LLM as a string
+    @staticmethod
+    def conversation_local_llm(conversation, model_path, temperature, max_tokens=MAX_TOKENS, top_p=TOP_P):
+        
+        model, tokenizer = LLMAggregator.load(model_path)
+
+        inputs = tokenizer.apply_chat_template(
+            conversation,
+            tokenize=True,
+            add_generation_prompt=True,
+            enable_thinking=False,
+            return_tensors="pt"
+        ).to(model.device)
+
+        with torch.no_grad():
+            outputs = model.generate(
+                inputs,
+                max_new_tokens=max_tokens,
+                temperature=temperature,
+                top_p=top_p,
+                do_sample=True,
+            )
+
+        content = tokenizer.decode(
+            outputs[0][inputs.shape[-1]:],
+            skip_special_tokens=True
+        )
+        return LLMAggregator.remove_thinking(content)
 
     # Function that control and process conversations depending on the chosen LLM, wether close or open source
     # Input:
@@ -127,8 +227,12 @@ class LLMAggregator:
                 "role": "user",
                 "content": newtext
             })
+            # If conversing via LM studio
             model_name = LLMAggregator.OPEN_LLM_VERSIONS[index]["MODEL_NAME"]
             return LLMAggregator.conversation_lm_studio(conversations, model_name, temperature)
+            # If conversing via local models
+            #model_path = LLMAggregator.OPEN_LLM_VERSIONS[index]["MODEL_PATH"]
+            #return LLMAggregator.conversation_local_llm(conversations, model_path, temperature)
     
         # If a closed-source LLM is selected
         model_name = LLMAggregator.CLOSE_LLM_VERSIONS[index]["MODEL_NAME"]
@@ -185,9 +289,25 @@ class LLMAggregator:
         Returns:
             str: The response generated by the AI model.
         """
+        # Copy the conversation so the original is not modified.
+        messages = [message.copy() for message in conversation]
+    
+        # Enable /no_think only for Qwen3 models.
+        if "qwen3" in model_name.lower():
+            for message in reversed(messages):
+                if message.get("role") == "user":
+                    content = message.get("content", "")
+    
+                    if isinstance(content, str):
+                        if "/no_think" not in content.lower():
+                            message["content"] = (
+                                content.rstrip() + "\n\n/no_think"
+                            )
+    
+                    break
         # Prepare the payload
         payload = {
-            "messages": conversation,
+            "messages": messages,
             "max_tokens": max_tokens,
             "temperature": temperature,
             "top_p": top_p,
@@ -196,7 +316,8 @@ class LLMAggregator:
         try:
             response = requests.post(API_URL, headers=HEADERS, json=payload)
             response.raise_for_status()
-            return response.json().get("choices", [{}])[0].get("message", {}).get("content", "No response text found.")
+            content = response.json().get("choices", [{}])[0].get("message", {}).get("content", "No response text found.")
+            return LLMAggregator.remove_thinking(content)
         except requests.exceptions.RequestException as e:
             return f"Error querying LM Studio: {e}"
 
